@@ -24,6 +24,7 @@ pin = 4
 
 # Try to grab a sensor reading.  Use the read_retry method which will retry up
 # to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+#this area will be worked on
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
 
@@ -32,7 +33,7 @@ firebase = firebase.FirebaseApplication('https://YOUR_FIREBASE_URL.firebaseio.co
 #firebase.put("/dht", "/humidity", "0.00")
 
 def update_firebase():
-
+#this area will be worked on
 	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 	if humidity is not None and temperature is not None:
 		sleep(5)
@@ -45,6 +46,7 @@ def update_firebase():
 		sleep(10)
 
 	data = {"temp": temperature, "humidity": humidity}
+	#till there
 	firebase.post('/sensor/dht', data)
 	
 
