@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "149420006090",
+    "firebase_url": "https://petpath-ec12c.firebaseio.com",
+    "project_id": "petpath-ec12c",
+    "storage_bucket": "petpath-ec12c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149420006090:android:3208c60d1161ae58deb233",
+        "android_client_info": {
+          "package_name": "com.example.petpath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149420006090-2jfe02the7sn4etmg903j6hqlvhldneh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQf2HgskYVcWlpNz5lD9LRtpHJuO1isrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149420006090-2jfe02the7sn4etmg903j6hqlvhldneh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
