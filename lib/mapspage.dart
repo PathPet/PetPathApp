@@ -9,7 +9,7 @@ class MapsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, 
       home: MyHomePage(),
     );
   }
@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     foodContainer.forEach((element) {
       allMarkers.add(Marker(
+        
           markerId: MarkerId(element.name),
           draggable: false,
           infoWindow:
@@ -61,10 +62,11 @@ void _onScroll() {
           value = (1 - (value.abs() * 0.3) + 0.06).clamp(0.0, 1.0);
         }
         return Center(
+          
           child: SizedBox(
             height: Curves.easeInOut.transform(value) * 125.0,
             width: Curves.easeInOut.transform(value) * 350.0,
-            child: widget,
+            child: widget,   
           ),
         );
       },
@@ -96,6 +98,7 @@ void _onScroll() {
                             color: Colors.white),
                         child: Row(children: [
                           Container(
+                            
                               height: 90.0,
                               width: 90.0,
                               decoration: BoxDecoration(

@@ -18,6 +18,7 @@ class Food {
 final List<Food> foodContainer = [
   Food(
       name: '   Anadolu Üniversitesi',
+      
     //  address: 'Yunus Emre Kampüsü',
       locationCoords: LatLng(36.887669, 30.638700),
       thumbNail: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Anadolu_University%2C_Eski%C5%9Fehir.jpg'
