@@ -53,44 +53,21 @@ class OnBoardingPage extends StatelessWidget {
         PageViewModel(
           title: "How do I use the app?",
           body:
-          "You can take a look at the food containers on the map and you can supplement the food for the nearest point. Decreases in the food container will appear on the map. You just want to make street animals happy.",
+          "You can take a look at the food containers on the map and you can supplement the food for the nearest point.",
           image: Image.asset('assets/img2.jpg', width: 350.0),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Kids and teens",
+          title: "Add food to containers",
           body:
-          "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+          "Decreases in the food container will appear on the map. You can add foods to containers",
           image: Image.asset('assets/img3.jpg', width: 350.0),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          image: Image.asset('assets/img2.jpg', width: 350.0),
-          footer: RaisedButton(
-            onPressed: () {/* Nothing */},
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Title of last page",
-          bodyWidget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
-            ],
-          ),
+          title: "Make animals happier!",
+          body:
+          "You just want to make street animals happy. Start to use!",
           image: Image.asset('assets/img3.jpg', width: 350.0),
           decoration: pageDecoration,
         ),
