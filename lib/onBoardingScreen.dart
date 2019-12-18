@@ -24,7 +24,7 @@ class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key key}) : super(key: key);
 
   void _onIntroEnd(context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => MyHomePage()),
     );
   }

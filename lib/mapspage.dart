@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'clocation.dart';
@@ -25,8 +26,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Marker> allMarkers = [];
 
-  BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/flutter-icon.png");
-  BitmapDescriptor sadDog = BitmapDescriptor.fromAsset("assets/flutter-icon.png");
+
+
+  BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
+  BitmapDescriptor sadDog = BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
 
 
   PageController _pageController;
