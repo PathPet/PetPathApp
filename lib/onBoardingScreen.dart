@@ -44,9 +44,9 @@ class OnBoardingPage extends StatelessWidget {
     return IntroductionScreen(
       pages: [
         PageViewModel(
-          title: "Fractional shares",
+          title: "Welcome to PathPet",
           body:
-          "Instead of having to buy an entire share, invest any amount you want.",
+          "Our main purpose is to increase the number of the food containers for stray animals and keep them full all the time.",
           image:Image.asset('assets/img1.jpg', width: 350.0),
           decoration: pageDecoration,
         ),
