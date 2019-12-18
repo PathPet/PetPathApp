@@ -47,28 +47,28 @@ class OnBoardingPage extends StatelessWidget {
           title: "Welcome to PathPet",
           body:
           "Our main purpose is to increase the number of the food containers for stray animals and keep them full all the time.",
-          image:Image.asset('assets/img1.jpg', width: 350.0),
+          image:Image.asset('assets/onBoarding-1.png', width: 350.0),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "How do I use the app?",
           body:
           "You can take a look at the food containers on the map and you can supplement the food for the nearest point.",
-          image: Image.asset('assets/img2.jpg', width: 350.0),
+          image: Image.asset('assets/onBoarding-2.png', width: 350.0),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Add food to containers",
           body:
           "Decreases in the food container will appear on the map. You can add foods to containers",
-          image: Image.asset('assets/img3.jpg', width: 350.0),
+          image: Image.asset('assets/onBoarding-3.png', width: 350.0, height: 100.0,),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Make animals happier!",
           body:
           "You just want to make street animals happy. Start to use!",
-          image: Image.asset('assets/img3.jpg', width: 350.0),
+          image: Image.asset('assets/onBoarding-4.png', width: 350.0),
           decoration: pageDecoration,
         ),
       ],
