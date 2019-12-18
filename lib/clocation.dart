@@ -15,6 +15,8 @@ class Food {
       this.locationCoords});
 }
 
+int foodP = 10;
+
 String foodPer = "%30";
 
 final List<Food> foodContainer = [
@@ -22,7 +24,7 @@ final List<Food> foodContainer = [
       name: '   Anadolu Üniversitesi',
       
     //  address: 'Yunus Emre Kampüsü',
-      locationCoords: LatLng(36.887669, 30.638700),
+      locationCoords: LatLng(39.791156, 30.504051),
       thumbNail: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Anadolu_University%2C_Eski%C5%9Fehir.jpg'
 
       ),

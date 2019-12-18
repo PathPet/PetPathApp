@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +7,7 @@ import './login_page.dart' as loginpage;
 import './onBoardingScreen.dart' as onboarding;
 import 'auth.dart';
 import 'home_page.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+
 //import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'dart:async';
 
@@ -76,49 +74,15 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   TabController controller;
 
-FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
   @override
   void initState() {
     super.initState();
-     firebaseCloudMessaging_Listeners();
+ 
     controller = new TabController(vsync: this, length: 3);
   }
 
-  void firebaseCloudMessaging_Listeners() {
-     if (Platform.isIOS) iOS_Permission();
-
-  _firebaseMessaging.getToken().then((token){
-    print(token);
-  });
-
-  _firebaseMessaging.configure(
-    onMessage: (Map<String, dynamic> message) async {
-      print('on message $message');
-    },
-    onResume: (Map<String, dynamic> message) async {
-      print('on resume $message');
-    },
-    onLaunch: (Map<String, dynamic> message) async {
-      print('on launch $message');
-    },
-  );
-}
-
-
-
-void iOS_Permission() {
-  _firebaseMessaging.requestNotificationPermissions(
-      IosNotificationSettings(sound: true, badge: true, alert: true)
-  );
-  _firebaseMessaging.onIosSettingsRegistered
-      .listen((IosNotificationSettings settings)
-  {
-    print("Settings registered: $settings");
-  });
-}
-
-
+  
 
   @override
   void dispose() {

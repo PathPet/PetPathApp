@@ -24,30 +24,80 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GoogleMapController _controller;
 
-  List<Marker> allMarkers = [];
-
-
-
-  BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
+   BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
   BitmapDescriptor sadDog = BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
+  BitmapDescriptor tmp ;
 
+
+static icon() {
+if (foodP < 20) {
+  return BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
+ }
+ else{
+return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
+ }
+}
+
+
+  List<Marker> allMarkers = [Marker(
+
+          markerId: MarkerId(foodContainer[0].name),
+          
+          draggable: false,
+          infoWindow: InfoWindow(title: foodContainer[0].name, snippet: foodContainer[0].address),
+          position: foodContainer[0].locationCoords,
+          icon: icon()
+          
+          
+          ),
+
+          Marker(
+
+          markerId: MarkerId(foodContainer[1].name),
+          
+        
+          draggable: false,
+          infoWindow: InfoWindow(title: foodContainer[1].name, snippet: foodContainer[1].address),
+          position: foodContainer[1].locationCoords, 
+          icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
+          
+          ),
+          
+
+
+
+          Marker(
+
+          markerId: MarkerId(foodContainer[2].name),
+          
+        
+          draggable: false,
+          infoWindow: InfoWindow(title: foodContainer[2].name, snippet: foodContainer[2].address),
+          position: foodContainer[2].locationCoords,
+           icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
+           ),
+          ];
+
+
+
+ 
 
   PageController _pageController;
 
   int prevPage;
 
+
+
+
+
+
   @override
   void initState() {
+  
     super.initState();
-    foodContainer.forEach((element) {
-      allMarkers.add(Marker(
+ 
 
-          markerId: MarkerId(element.name),
-          icon: sadDog,
-          draggable: false,
-          infoWindow: InfoWindow(title: element.name, snippet: element.address),
-          position: element.locationCoords));
-    });
+
     _pageController = PageController(initialPage: 1, viewportFraction: 0.8)
       ..addListener(_onScroll);
   }
