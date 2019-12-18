@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import './mapspage.dart' as mapspage;
 import './chartpage.dart' as chartpage; 
 import './login_page.dart' as loginpage;
+import './onBoardingScreen.dart' as onboarding;
 import 'auth.dart';
 import 'home_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: FutureBuilder<FirebaseUser>(
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
             }
 
             // redirect to the proper page
-            return snapshot.hasData ? HomePage(snapshot.data) : MyHomePage();
+            return snapshot.hasData ? HomePage(snapshot.data) : onboarding.OnBoarding();
           } else {
             // show loading indicator
             return LoadingCircle();
