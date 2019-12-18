@@ -145,6 +145,7 @@ void iOS_Permission() {
           ) 
         ),
       body: new TabBarView(
+        physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: <Widget>[
           new mapspage.MapsPage(),

@@ -9,11 +9,13 @@ class Food {
 
   Food(
       {this.name,
-   //   this.address,
+      this.address,
       this.description,
       this.thumbNail,
       this.locationCoords});
 }
+
+String foodPer = "%30";
 
 final List<Food> foodContainer = [
   Food(
@@ -22,6 +24,7 @@ final List<Food> foodContainer = [
     //  address: 'Yunus Emre Kampüsü',
       locationCoords: LatLng(36.887669, 30.638700),
       thumbNail: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Anadolu_University%2C_Eski%C5%9Fehir.jpg'
+
       ),
   Food(
       name: 'Eskişehir Teknik Üniversitesi',
@@ -30,8 +33,8 @@ final List<Food> foodContainer = [
       thumbNail: 'https://www.eskisehirekspres.net/images/haberler/2018/08/yapilandirmada-sona-yaklasildi_5cde9.png'
       ),
   Food(
-      name: 'Espark',
-    //  address: 'Eskibağlar, Yılmaz Büyükerşen Blv No:21',
+      name: 'Espark ',
+      address: 'Mama oranı ' + foodPer,
       locationCoords: LatLng(39.783363,30.511082),
       thumbNail: 'https://www.espark.com.tr/fileadmin/_processed_/f/8/csm_espark__329__3100744808.jpg'
       )

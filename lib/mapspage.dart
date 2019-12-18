@@ -9,7 +9,7 @@ class MapsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -23,7 +23,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GoogleMapController _controller;
 
-    List<Marker> allMarkers = [];
+  List<Marker> allMarkers = [];
+
+  BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/flutter-icon.png");
+  BitmapDescriptor sadDog = BitmapDescriptor.fromAsset("assets/flutter-icon.png");
+
 
   PageController _pageController;
 
@@ -34,18 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     foodContainer.forEach((element) {
       allMarkers.add(Marker(
-        
+
           markerId: MarkerId(element.name),
+          icon: sadDog,
           draggable: false,
-          infoWindow:
-              InfoWindow(title: element.name, snippet: element.address),
+          infoWindow: InfoWindow(title: element.name, snippet: element.address),
           position: element.locationCoords));
     });
     _pageController = PageController(initialPage: 1, viewportFraction: 0.8)
       ..addListener(_onScroll);
   }
 
-void _onScroll() {
+  void _onScroll() {
     if (_pageController.page.toInt() != prevPage) {
       prevPage = _pageController.page.toInt();
       moveCamera();
@@ -62,11 +66,11 @@ void _onScroll() {
           value = (1 - (value.abs() * 0.3) + 0.06).clamp(0.0, 1.0);
         }
         return Center(
-          
+
           child: SizedBox(
             height: Curves.easeInOut.transform(value) * 125.0,
             width: Curves.easeInOut.transform(value) * 350.0,
-            child: widget,   
+            child: widget,
           ),
         );
       },
@@ -98,7 +102,7 @@ void _onScroll() {
                             color: Colors.white),
                         child: Row(children: [
                           Container(
-                            
+
                               height: 90.0,
                               width: 90.0,
                               decoration: BoxDecoration(
@@ -132,10 +136,10 @@ void _onScroll() {
     );
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: AppBar(
+        appBar: AppBar(
           title: Text('Maps'),
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
