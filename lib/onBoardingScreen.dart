@@ -51,9 +51,9 @@ class OnBoardingPage extends StatelessWidget {
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Learn as you go",
+          title: "How do I use the app?",
           body:
-          "Download the Stockpile app and master the market with our mini-lesson.",
+          "You can take a look at the food containers on the map and you can supplement the food for the nearest point. Decreases in the food container will appear on the map. You just want to make street animals happy.",
           image: Image.asset('assets/img2.jpg', width: 350.0),
           decoration: pageDecoration,
         ),
