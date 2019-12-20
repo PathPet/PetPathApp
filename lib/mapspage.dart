@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:petpath/database.dart';
 import 'clocation.dart';
 import 'main.dart';
 
@@ -24,82 +24,64 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GoogleMapController _controller;
 
-   BitmapDescriptor happyDog = BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
-  BitmapDescriptor sadDog = BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
-  BitmapDescriptor tmp ;
+  BitmapDescriptor happyDog =
+      BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
+  BitmapDescriptor sadDog =
+      BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
+  BitmapDescriptor tmp;
 
+  static List<Food> foodContainers = foodContainer;
 
-static icon() {
-if (foodP < 20) {
-  return BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
- }
- else{
-return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
- }
-}
+  static setIcon(int weight) {
+    if (weight < 300) {
+      return BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
+    } else {
+      return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
+    }
+  }
 
-
-  List<Marker> allMarkers = [Marker(
-
-          markerId: MarkerId(foodContainer[0].name),
-          
+  static Future<List<Marker>> setMarkers() async {
+    List<Marker> markers = new List<Marker>();
+    BitmapDescriptor tempIcon = setIcon(301);
+    for (int i = 0; i < foodContainers.length; i++) {
+      if (i == foodContainers.length - 1) {
+        int weight = await Database.getWeightByRest();
+        tempIcon = setIcon(weight);
+      }
+      markers.add(new Marker(
+          markerId: MarkerId(foodContainers[i].name),
           draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[0].name, snippet: foodContainer[0].address),
-          position: foodContainer[0].locationCoords,
-          icon: icon()
-          
-          
-          ),
+          infoWindow: InfoWindow(
+              title: foodContainers[i].name,
+              snippet: foodContainers[i].address),
+          position: foodContainers[i].locationCoords,
+          icon: tempIcon)
+      );
+    }
+    return markers;
+  }
 
-          Marker(
-
-          markerId: MarkerId(foodContainer[1].name),
-          
-        
-          draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[1].name, snippet: foodContainer[1].address),
-          position: foodContainer[1].locationCoords, 
-          icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
-          
-          ),
-          
-
-
-
-          Marker(
-
-          markerId: MarkerId(foodContainer[2].name),
-          
-        
-          draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[2].name, snippet: foodContainer[2].address),
-          position: foodContainer[2].locationCoords,
-           icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
-           ),
-          ];
-
-
-
- 
+  List<Marker> allMarkers = new List<Marker>();
 
   PageController _pageController;
 
   int prevPage;
 
-
-
-
-
-
   @override
   void initState() {
-  
     super.initState();
- 
-
-
     _pageController = PageController(initialPage: 1, viewportFraction: 0.8)
       ..addListener(_onScroll);
+    Database.getWeightByRest();
+    setMarkers().then(
+        (data) {
+          setState(() {
+            allMarkers = data;
+            for(int i = 0; i < data.length; i++) {
+            }
+          });
+        }
+    );
   }
 
   void _onScroll() {
@@ -119,7 +101,6 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
           value = (1 - (value.abs() * 0.3) + 0.06).clamp(0.0, 1.0);
         }
         return Center(
-
           child: SizedBox(
             height: Curves.easeInOut.transform(value) * 125.0,
             width: Curves.easeInOut.transform(value) * 350.0,
@@ -155,7 +136,6 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
                             color: Colors.white),
                         child: Row(children: [
                           Container(
-
                               height: 90.0,
                               width: 90.0,
                               decoration: BoxDecoration(
@@ -164,7 +144,7 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
                                       topLeft: Radius.circular(10.0)),
                                   image: DecorationImage(
                                       image: NetworkImage(
-                                          foodContainer[index].thumbNail),
+                                          foodContainers[index].thumbNail),
                                       fit: BoxFit.cover))),
                           SizedBox(width: 5.0),
                           Column(
@@ -172,7 +152,7 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  foodContainer[index].name,
+                                  foodContainers[index].name,
                                   style: TextStyle(
                                       fontSize: 12.5,
                                       fontWeight: FontWeight.bold),
@@ -188,6 +168,20 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
           ])),
     );
   }
+
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//        appBar: AppBar(
+//          title: Text('Maps'),
+//          centerTitle: true,
+//          backgroundColor: Colors.lightBlue,
+//        ),
+//        body: StreamBuilder(
+//          stream: Data  ,
+//        )
+//    );
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +210,7 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
                 width: MediaQuery.of(context).size.width,
                 child: PageView.builder(
                   controller: _pageController,
-                  itemCount: foodContainer.length,
+                  itemCount: foodContainers.length,
                   itemBuilder: (BuildContext context, int index) {
                     return _foodContainerList(index);
                   },
@@ -235,7 +229,7 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
 
   moveCamera() {
     _controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: foodContainer[_pageController.page.toInt()].locationCoords,
+        target: foodContainers[_pageController.page.toInt()].locationCoords,
         zoom: 14.0,
         bearing: 45.0,
         tilt: 45.0)));
