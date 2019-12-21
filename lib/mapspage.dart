@@ -47,7 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
       if (i == foodContainers.length - 1) {
         int weight = await Database.getWeightByRest();
         tempIcon = setIcon(weight);
+        int ratio = (weight/5).round();
+        foodContainers[i].address = "Food ratio: %" + ratio.toString();
       }
+
+      print(foodContainers[i].address);
+
       markers.add(new Marker(
           markerId: MarkerId(foodContainers[i].name),
           draggable: false,

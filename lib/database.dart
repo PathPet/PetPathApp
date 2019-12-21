@@ -38,7 +38,10 @@ class Database {
   static Future<int> getWeightByRest() async {
     http.Response response = await http.get('https://raspberrypi-1443d.firebaseio.com/sensor/loadcell/-Lvm1JIc-4NoIjDkVdqR.json');
     var responseBody = json.decode(response.body);
-    var weight = responseBody['weight'];
+    int weight = responseBody['weight'];
+    if (weight > 500) {
+      weight = 500;
+    }
     return weight;
   }
 }
