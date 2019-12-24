@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import './mapspage.dart' as mapspage;
 import './chartpage.dart' as chartpage; 
@@ -23,6 +24,8 @@ void main() => runApp(
     );
 
 class MyApp extends StatelessWidget {
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -73,16 +76,28 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   TabController controller;
+  bool _requireConsent = true;
 
 
   @override
   void initState() {
     super.initState();
- 
     controller = new TabController(vsync: this, length: 3);
+    initPlatformState();
   }
 
-  
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    OneSignal.shared.init(
+        "ecd56500-fc94-4ca1-8d9e-56cee7534b8f",
+        iOSSettings: {
+          OSiOSSettings.autoPrompt: false,
+          OSiOSSettings.inAppLaunchUrl: true
+        }
+    );
+    OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
+  }
+
 
   @override
   void dispose() {
