@@ -16,16 +16,10 @@
 @import firebase_core;
 #endif
 
-#if __has_include(<firebase_database/FirebaseDatabasePlugin.h>)
-#import <firebase_database/FirebaseDatabasePlugin.h>
+#if __has_include(<firebase_database/FLTFirebaseDatabasePlugin.h>)
+#import <firebase_database/FLTFirebaseDatabasePlugin.h>
 #else
 @import firebase_database;
-#endif
-
-#if __has_include(<firebase_messaging/FirebaseMessagingPlugin.h>)
-#import <firebase_messaging/FirebaseMessagingPlugin.h>
-#else
-@import firebase_messaging;
 #endif
 
 #if __has_include(<google_maps_flutter/GoogleMapsPlugin.h>)
@@ -40,7 +34,6 @@
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];
   [FLTFirebaseDatabasePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseDatabasePlugin"]];
-  [FLTFirebaseMessagingPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseMessagingPlugin"]];
   [FLTGoogleMapsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMapsPlugin"]];
 }
 
