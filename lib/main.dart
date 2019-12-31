@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage>
             tabs: <Widget>[
             new Tab(icon: new Icon(Icons.map)),
             new Tab(icon: new Icon(Icons.insert_chart)),
-                new Tab(icon: new Icon(Icons.person)),
+                new Tab(icon: new Icon(Icons.pets)),
           ],
           ) 
         ),

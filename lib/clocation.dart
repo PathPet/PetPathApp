@@ -22,7 +22,7 @@ String foodPer = "%30";
 final List<Food> foodContainer = [
   Food(
       name: '   Anadolu Üniversitesi',
-      
+       address: 'Mama oranı ' + foodPer,
     //  address: 'Yunus Emre Kampüsü',
       locationCoords: LatLng(39.791156, 30.504051),
       thumbNail: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Anadolu_University%2C_Eski%C5%9Fehir.jpg'
@@ -30,6 +30,7 @@ final List<Food> foodContainer = [
       ),
   Food(
       name: 'Eskişehir Teknik Üniversitesi',
+       address: 'Mama oranı ' + foodPer,
    //   address: 'Eskişehir Teknik Üniversitesi 2 Eylül Kampüsü',
       locationCoords: LatLng(39.815212,30.537023),
       thumbNail: 'https://www.eskisehirekspres.net/images/haberler/2018/08/yapilandirmada-sona-yaklasildi_5cde9.png'
