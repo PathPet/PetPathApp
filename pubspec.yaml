@@ -24,6 +24,7 @@ dependencies:
  # firebase_messaging: ^4.0.0+1
   firebase_database: ^3.1.1
   onesignal_flutter: ^2.0.0
+  cloud_firestore: ^0.12.9+5
 
 
 dev_dependencies:
