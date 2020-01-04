@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Food> foodContainers = foodContainer;
 
   static setIcon(int weight) {
-    if (weight < 300) {
+    if (weight < 150) {
       return BitmapDescriptor.fromAsset("assets/sad_dog_hdpi.png");
     } else {
       return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
