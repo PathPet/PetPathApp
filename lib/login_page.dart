@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:petpath/vlocation.dart';
-import 'clocation.dart';
+import 'vlocation.dart';
 import 'main.dart';
 
 void main() => runApp(MyApp());
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           markerId: MarkerId(vetContainer[0].name),
           
           draggable: false,
-          infoWindow: InfoWindow(title: vetContainer[0].name),
+          infoWindow: InfoWindow(title: vetContainer[0].name, snippet: vetContainer[0].address),
           position: vetContainer[0].locationCoords,
           icon:  BitmapDescriptor.fromAsset("assets/vet.png")
           
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           
         
           draggable: false,
-          infoWindow: InfoWindow(title: vetContainer[1].name),
+          infoWindow: InfoWindow(title: vetContainer[1].name,snippet: vetContainer[1].address),
           position: vetContainer[1].locationCoords, 
           icon: BitmapDescriptor.fromAsset("assets/vet.png")
           
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           
         
           draggable: false,
-          infoWindow: InfoWindow(title: vetContainer[2].name),
+          infoWindow: InfoWindow(title: vetContainer[2].name,snippet: vetContainer[2].address),
           position: vetContainer[2].locationCoords,
            icon: BitmapDescriptor.fromAsset("assets/vet.png")
            ),
@@ -73,8 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
              Marker(
 
           markerId: MarkerId(vetContainer[3].name),
-          
-             ),
+           draggable: false,
+          infoWindow: InfoWindow(title: vetContainer[2].name,snippet: vetContainer[3].address),
+          position: vetContainer[3].locationCoords,
+           icon: BitmapDescriptor.fromAsset("assets/vet.png")
+           ),
+            
          
           ];
 
@@ -204,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width,
               child: GoogleMap(
                 initialCameraPosition: CameraPosition(
-                    target: LatLng(39.770771, 30.517981), zoom: 12.0),
+                    target: LatLng(39.77952, 30.51471), zoom: 15.0),
                 markers: Set.from(allMarkers),
                 onMapCreated: mapCreated,
               ),

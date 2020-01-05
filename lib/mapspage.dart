@@ -196,6 +196,21 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
           title: Text('Maps'),
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
+            actions: <Widget>[
+    IconButton(
+      icon: Icon(
+        Icons.refresh,
+        color: Colors.white,
+      ),
+      onPressed: () {
+       Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MapsPage()),
+       );
+      },
+
+    )
+  ],
         ),
         body: Stack(
           children: <Widget>[
