@@ -1,7 +1,7 @@
 # PetPathApp
 First week : GoogleMaps is added. Markers are added. 
 
-https://bit.ly/371J82H
+Uygulama Video : https://bit.ly/371J82H
 
 Mama Kabı Yüzde Değişimi Video : https://bit.ly/37yDxBq
 
