@@ -39,44 +39,7 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
 }
 
 
-  List<Marker> allMarkers = [Marker(
-
-          markerId: MarkerId(foodContainer[0].name),
-          
-          draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[0].name, snippet: foodContainer[0].address),
-          position: foodContainer[0].locationCoords,
-          icon: icon()
-          
-          
-          ),
-
-          Marker(
-
-          markerId: MarkerId(foodContainer[1].name),
-          
-        
-          draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[1].name, snippet: foodContainer[1].address),
-          position: foodContainer[1].locationCoords, 
-          icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
-          
-          ),
-          
-
-
-
-          Marker(
-
-          markerId: MarkerId(foodContainer[2].name),
-          
-        
-          draggable: false,
-          infoWindow: InfoWindow(title: foodContainer[2].name, snippet: foodContainer[2].address),
-          position: foodContainer[2].locationCoords,
-           icon: BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png")
-           ),
-          ];
+  List<Marker> allMarkers = new List<Marker>();
 
 
 
@@ -100,6 +63,16 @@ return BitmapDescriptor.fromAsset("assets/happy_dog_hdpi.png");
 
     _pageController = PageController(initialPage: 1, viewportFraction: 0.8)
       ..addListener(_onScroll);
+    Database.getWeightByRest();
+    setMarkers().then(
+        (data) {
+          setState(() {
+            allMarkers = data;
+            for(int i = 0; i < data.length; i++) {
+            }
+          });
+        }
+    );
   }
 
   void _onScroll() {
