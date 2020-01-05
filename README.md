@@ -3,7 +3,8 @@ First week : GoogleMaps is added. Markers are added.
 
 https://bit.ly/371J82H
 
-mama kabı yüzde değişimi : https://bit.ly/37yDxBq
+Mama Kabı Yüzde Değişimi Video : https://bit.ly/37yDxBq
 
-raspberry değer değişimi : https://bit.ly/2sHeY6k
+Raspberry Değer Değişimi Video : https://bit.ly/2sHeY6k
 
+Sunum : https://bit.ly/2QpGHBB
